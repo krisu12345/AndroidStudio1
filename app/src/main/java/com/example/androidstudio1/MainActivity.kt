@@ -9,12 +9,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var img = "cool1"
+
         przod.setOnClickListener {
-            imageView.setImageResource(R.drawable.cool1);
-            if(
+            if(img == "cool1"){
+                imageView.setImageResource(R.drawable.grzechu2);
+                img = "grzechu2"
+            }
+            else if(img == "grzechu2"){
+                imageView.setImageResource(R.drawable.grzes3);
+                img = "grzes3"
+            }
+            else if(img == "grzes3"){
+                imageView.setImageResource(R.drawable.nibb4);
+                img = "nibb4"
+            }
+            else if(img == "nibb4"){
+                imageView.setImageResource(R.drawable.cool1);
+                img = "cool1"
+            }
         }
         tyl.setOnClickListener {
-            imageView.setImageResource(R.drawable.nibb4);
+            if(img == "cool1"){
+                imageView.setImageResource(R.drawable.nibb4);
+                img = "nibb4"
+            }
+            else if(img == "grzechu2"){
+                imageView.setImageResource(R.drawable.cool1);
+                img = "cool1"
+            }
+            else if(img == "grzes3"){
+                imageView.setImageResource(R.drawable.grzechu2);
+                img = "grzechu2"
+            }
+            else if(img == "nibb4"){
+                imageView.setImageResource(R.drawable.grzes3);
+                img = "grzes3"
+            }
         }
     }
 }
