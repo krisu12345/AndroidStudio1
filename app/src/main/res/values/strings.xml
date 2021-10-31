@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidStudio1</string>
+    <string name="przod">przod</string>
+    <string name="tyl">tyl</string>
+    <string name="todo">TODO</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="ukryj_zdjecie">ukryj zdjecie</string>
 </resources>
