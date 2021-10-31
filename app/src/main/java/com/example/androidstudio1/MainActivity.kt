@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isInvisible
@@ -96,6 +97,10 @@ class MainActivity : AppCompatActivity() {
         }
         else
             imageView.isVisible = true
+    }
+
+    fun czysc1(view: View) {
+        imageView.setImageResource(0)
     }
 
 }
