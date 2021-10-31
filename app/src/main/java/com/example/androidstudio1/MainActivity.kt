@@ -23,11 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rotacjaX.addTextChangedListener{
-            var nowa = rotacjaX.text.toString().toFloat()
-            imageView.rotationY = nowa
-            //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
-        }
+        //rotacjaX.addTextChangedListener{
+
+       // }
 
         fota.isEnabled = false
         if(ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED){
@@ -108,5 +106,11 @@ class MainActivity : AppCompatActivity() {
     }
     fun czysc1(view: View) {
         imageView.setImageResource(0)
+    }
+
+    fun rotujemy(view: View) {
+        var nowa = rotacjaX.text.toString().toFloat()
+        imageView.rotationY = nowa
+        //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
     }
 }
