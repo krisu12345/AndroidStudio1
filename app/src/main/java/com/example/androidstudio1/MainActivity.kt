@@ -6,15 +6,18 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
 
         fota.isEnabled = false
@@ -87,4 +90,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun sprawdz(view: View) {
+        if(checkBox.isChecked){
+            imageView.isInvisible = true
+        }
+        else
+            imageView.isVisible = true
     }
+
+}
