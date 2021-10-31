@@ -1,3 +1,4 @@
+
 package com.example.androidstudio1
 
 import android.Manifest
@@ -12,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        rotacjaX.addTextChangedListener{
+            var nowa = rotacjaX.text.toString().toFloat()
+            imageView.rotationY = nowa
+            //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
+        }
 
         fota.isEnabled = false
         if(ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED){
@@ -98,9 +106,7 @@ class MainActivity : AppCompatActivity() {
         else
             imageView.isVisible = true
     }
-
     fun czysc1(view: View) {
         imageView.setImageResource(0)
     }
-
 }
