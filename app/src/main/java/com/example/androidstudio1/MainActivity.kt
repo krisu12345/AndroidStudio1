@@ -15,10 +15,12 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
-
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -111,6 +113,12 @@ class MainActivity : AppCompatActivity() {
     fun rotujemy(view: View) {
         var nowa = rotacjaX.text.toString().toFloat()
         imageView.rotationY = nowa
+
+        var nowa1 = rotacjaX2.text.toString().toFloat()
+        imageView.rotationX = nowa1
+
+        //var nowa2 = smoke.text.toString().toInt()
+        //imageView.imageAlpha = nowa2
         //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
     }
 }
