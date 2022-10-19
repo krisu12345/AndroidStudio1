@@ -36,13 +36,24 @@ class MainActivity : AppCompatActivity() {
         seekBar2.max = 10
         seekBar2.incrementProgressBy(1)
 
-        var wartosc = seekBar2.progress
-        if(wartosc < 4){
-            imageView2.setImageResource(R.drawable.)
+        seekBar2.setOnClickListener{
+            var wartosc = seekBar2.progress
+            if(wartosc < 4){
+                imageView2.setImageResource(R.drawable.green)
+                imageView2.imageAlpha = 75
+            }
+            if((wartosc <= 7) and (wartosc > 4)){
+                imageView2.setImageResource(R.drawable.blue)
+                imageView2.imageAlpha = 75
+            }
+            if((wartosc <= 10) and (wartosc > 7)){
+                imageView2.setImageResource(R.drawable.red)
+                imageView2.imageAlpha = 75
+            }
         }
-        if((wartosc < 8) and (wartosc > 4)){
 
-        }
+
+
 
 
         fota.isEnabled = false
