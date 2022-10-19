@@ -117,8 +117,11 @@ class MainActivity : AppCompatActivity() {
         var nowa1 = rotacjaX2.text.toString().toFloat()
         imageView.rotationX = nowa1
 
-        //var nowa2 = smoke.text.toString().toInt()
-        //imageView.imageAlpha = nowa2
+
         //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
+    }
+    fun alphaaa(view: View){
+        var nowa2 = smoke.text.toString().toInt()
+        imageView.imageAlpha = nowa2
     }
 }
