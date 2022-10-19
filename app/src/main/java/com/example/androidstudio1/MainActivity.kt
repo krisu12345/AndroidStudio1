@@ -2,13 +2,16 @@
 package com.example.androidstudio1
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isInvisible
@@ -21,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class MainActivity : AppCompatActivity() {
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,6 +32,18 @@ class MainActivity : AppCompatActivity() {
         //rotacjaX.addTextChangedListener{
 
        // }
+        seekBar2.min = 1
+        seekBar2.max = 10
+        seekBar2.incrementProgressBy(1)
+
+        var wartosc = seekBar2.progress
+        if(wartosc < 4){
+            imageView2.setImageResource(R.drawable.)
+        }
+        if((wartosc < 8) and (wartosc > 4)){
+
+        }
+
 
         fota.isEnabled = false
         if(ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED){
@@ -80,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 101)
