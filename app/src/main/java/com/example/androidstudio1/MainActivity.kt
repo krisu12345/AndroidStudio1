@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -30,9 +31,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //rotacjaX.addTextChangedListener{
+        imageView2.isVisible = false
 
-       // }
+        seekBar4.min = 1
+        seekBar4.max = 100
+        seekBar4.incrementProgressBy(5)
+
+        seekBar.min = 1
+        seekBar.max = 360
+        seekBar.incrementProgressBy(5)
+
+        seekBar3.min = 1
+        seekBar3.max = 360
+        seekBar3.incrementProgressBy(1)
+
+
         seekBar2.min = 1
         seekBar2.max = 10
         seekBar2.incrementProgressBy(1)
@@ -45,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     var wartosc = progress
+                    imageView2.isVisible = true
                     if(wartosc < 4){
                         imageView2.setImageResource(R.drawable.green)
                         imageView2.imageAlpha = 75
@@ -70,7 +84,71 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
+        seekBar.setOnSeekBarChangeListener(
+            object:SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(
+                    _seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    var nowa = seekBar.progress.toFloat()
+                    imageView.rotationY = nowa
+                }
 
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+            }
+        )
+
+        seekBar3.setOnSeekBarChangeListener(
+            object:SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    var nowa1 = seekBar3.progress.toFloat()
+                    imageView.rotationX = nowa1
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+            }
+        )
+
+        seekBar4.setOnSeekBarChangeListener(
+            object:SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    var nowa2 = seekBar4.progress.toInt()
+                    imageView.imageAlpha = nowa2
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+            }
+        )
 
 
 
@@ -87,7 +165,7 @@ class MainActivity : AppCompatActivity() {
 
         var img = "cool1"
 
-        przod.setOnClickListener {
+        /*przod.setOnClickListener {
             if(img == "cool1"){
                 imageView.setImageResource(R.drawable.grzechu2)
                 img = "grzechu2"
@@ -122,7 +200,7 @@ class MainActivity : AppCompatActivity() {
                 imageView.setImageResource(R.drawable.grzes3)
                 img = "grzes3"
             }
-        }
+        }*/
     }
 
     @SuppressLint("SuspiciousIndentation")
@@ -145,7 +223,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun sprawdz(view: View) {
+    /*fun sprawdz(view: View) {
         if(checkBox.isChecked){
             imageView.isInvisible = true
         }
@@ -154,20 +232,5 @@ class MainActivity : AppCompatActivity() {
     }
     fun czysc1(view: View) {
         imageView.setImageResource(0)
-    }
-
-    fun rotujemy(view: View) {
-        var nowa = rotacjaX.text.toString().toFloat()
-        imageView.rotationY = nowa
-
-        var nowa1 = rotacjaX2.text.toString().toFloat()
-        imageView.rotationX = nowa1
-
-
-        //postanowilem ze Y bedzie  ciekawsza a zmieniac mi sie juz nie chce
-    }
-    fun alphaaa(view: View){
-        var nowa2 = smoke.text.toString().toInt()
-        imageView.imageAlpha = nowa2
-    }
+    }*/
 }
