@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         imageView2.isVisible = false
 
         seekBar4.min = 1
-        seekBar4.max = 100
+        seekBar4.max = 255
         seekBar4.incrementProgressBy(5)
 
         seekBar.min = 1
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     var nowa2 = seekBar4.progress.toInt()
-                    imageView.imageAlpha = nowa2
+                    imageView.imageAlpha = 255-nowa2
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
