@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.ImageView
+import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -36,21 +37,38 @@ class MainActivity : AppCompatActivity() {
         seekBar2.max = 10
         seekBar2.incrementProgressBy(1)
 
-        seekBar2.setOnClickListener{
-            var wartosc = seekBar2.progress
-            if(wartosc < 4){
-                imageView2.setImageResource(R.drawable.green)
-                imageView2.imageAlpha = 75
+        seekBar2.setOnSeekBarChangeListener(
+            object:SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    var wartosc = progress
+                    if(wartosc < 4){
+                        imageView2.setImageResource(R.drawable.green)
+                        imageView2.imageAlpha = 75
+                    }
+                    if((wartosc <= 7) && (wartosc > 4)){
+                        imageView2.setImageResource(R.drawable.blue)
+                        imageView2.imageAlpha = 50
+                    }
+                    if((wartosc <= 10) && (wartosc > 7)){
+                        imageView2.setImageResource(R.drawable.red)
+                        imageView2.imageAlpha = 75
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+                }
+
             }
-            if((wartosc <= 7) and (wartosc > 4)){
-                imageView2.setImageResource(R.drawable.blue)
-                imageView2.imageAlpha = 75
-            }
-            if((wartosc <= 10) and (wartosc > 7)){
-                imageView2.setImageResource(R.drawable.red)
-                imageView2.imageAlpha = 75
-            }
-        }
+        )
 
 
 
